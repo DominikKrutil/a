@@ -1,0 +1,407 @@
+:root {
+  /* FONTY */
+  --font-text: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
+  /* BARVY */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-light: #e7e7e7;
+  --color-gray: #999999;
+  --color-gray-dark: #2b2b2b;
+  --color-green-dark: #0f290f;
+}
+
+/* ------------- reset ---------------*/
+
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-text);
+    color: var(--color-black);
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+
+/* ------------------- classes --------------------*/
+/* ikonky*/
+.icons {
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: none;
+    text-shadow: none;
+    color: var(--color-black);
+}
+
+
+/* ----------------------- header ------------------------*/
+
+/*------------------- naviagce -----------------*/
+
+.nav-content {
+    padding: 8px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    position: fixed;
+    background-color: transparent;
+    z-index: 2100;
+    transition: .3s ease;
+}
+.nav-content.scrolled {
+    padding: 8px 35px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+/*logo*/
+.logo-container {
+    height: 60px;
+}
+.logo {
+    height: 100%;
+    display: block;
+}
+
+/*naviagce*/
+nav {
+    height: 100vh;
+    width: 70vw;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-white);
+    box-shadow: -8px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 2200;
+    transition: .3s ease;
+}
+nav.active {
+    right: 0;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-link {
+    position: relative;
+    font-size: 1.4rem;
+}
+
+.nav-link::after {
+    width: 0%;
+    height: 2px;
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;
+    background: var(--color-black);
+    transition: width 0.3s ease;
+}
+
+.nav-link.active-link::after {
+    width: 100%;
+}
+
+.close-icon {
+    font-size: 2.4rem;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+/* mutace a menu-btn*/
+.menu-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.language-item {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/*dropdown - apartmány, mutace*/
+.apartments-dropdown-menu-wrapper { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.apartments-dropdown-btn {
+    position: absolute;
+    left: 155px;
+}
+.apartments-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+.nav-item.active .apartments-icon {
+    transform: rotate(180deg);
+}
+
+.apartments-dropdown {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: .5s ease;
+}
+.nav-item.active .apartments-dropdown {
+    margin-top: 20px;
+    max-height: 150px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.apartments-dropdown-link {
+    padding: 10px 12px;
+    margin: 10px 0;
+    display: block;
+    background-color: var(--color-gray-light);
+    color: var(--color-black);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+
+/* --------------------------- main --------------------------------*/
+
+/* ------------------------ hero sekce ---------------------*/
+
+/*------------------ hero slider ----------------*/
+
+#hero-slider {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+    background: var(--color-gray-light);
+    z-index: 2000;
+}
+.hero-slider-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.hero-slider-track {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    will-change: transform;
+}
+.hero-slide {
+    min-width: 100%;
+    height: 100%;
+}
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* šipky */
+.slider-btn {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2025;
+    transition: all 0.3s ease;
+}
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    scale: 1.05;
+}
+.slider-btn.prev { left: 2rem; }
+.slider-btn.next { right: 2rem; }
+
+.hero-slider-track::-webkit-scrollbar { display: none; }
+
+
+/* ------------- hero kontent --------------*/
+#hero {
+    height: 500px;
+    background-color: var(--color-gray-light);
+}
+.hero-container {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-content {
+    min-height: 300px;
+    width: 90vw;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    position: absolute;
+    top: 70%; 
+    left: 50%;
+    border-radius: 20px;
+    background-color: var(--color-green-dark);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transform: translate(-50%, 17vh); 
+    z-index: 2050;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hero-content.scrolled {
+    transform: translate(-50%, 0); 
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    line-height: 1.2;
+    letter-spacing: 1px;    
+}
+.hero-p {
+    font-size: 1.1rem;
+    font-weight: 100;
+    color: var(--color-gray-light);
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+/* ---------------------------- responzivita -----------------------*/
+@media (min-width: 1150px) {
+
+   /* ---------- navigace ----------*/
+    /*logo*/
+    .logo-container {
+        height: 75px;
+    }
+    /*naviagce*/
+    .nav-content {
+        padding: 8px  10%;
+    }
+    .nav-content.scrolled {
+        padding: 8px 11%;
+    }
+    nav {
+        position: static;       
+        height: auto;
+        width: auto;
+        box-shadow: none;
+        background: transparent;
+        transition: none;
+    }
+    .nav-menu {
+        flex-direction: row;
+        gap: 30px;
+    }
+    .open-btn, .close-btn {
+        display: none;
+    }
+
+    /*dropdown*  apartmány*/
+    .apartments-dropdown-menu-wrapper {
+        gap: 15px;
+    }
+    .apartments-dropdown-btn {
+        position: relative;
+        left: 0;
+    }
+    .apartments-dropdown {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        max-height: none; 
+        min-width: 170px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-radius: 15px;
+    }
+    .nav-item.active .apartments-dropdown {
+        transform: translateX(-50%) translateY(0);
+        max-height: none;
+    }
+    .apartments-dropdown-link {
+        padding: 10px 25px;
+        margin: 0;
+        border-radius: 0;
+        background-color: rgb(241, 241, 241);
+    }
+    .apartments-dropdown-link:hover {
+        background-color: rgb(211, 211, 211);
+    }
+
+}
+@media (min-width: 1500px) {
+
+    /*--------- hero sekce ---------*/
+    .hero-content {
+        width: 70vw;
+        padding: 70px 15%;
+        gap: 50px;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .hero-p {
+        font-size: 1.4rem;
+    }
+}

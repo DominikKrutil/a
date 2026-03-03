@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engelmar Apartments</title>
+    <meta name="description" content="Engelmar Apartments – moderní ubytování v srdci Bavorského lesa. Komfortní apartmány pro vaši dovolenou.">
+
+    <!-- link na styly -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- link na fonty -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- link na ikonky -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    
+    
+    <header>
+        <div class="nav-container">
+            <div class="nav-content">
+                
+                <div class="logo-container">
+                    <img class="logo" src="images/logo/logo.png" alt="logo">
+                </div>
+
+                <nav>
+                    <ul class="nav-menu"> 
+                        <li class="nav-item">
+                            <button class="close-btn btn" aria-label="Zavřít menu">
+                                <i class="fas fa-xmark close-icon icons"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link active-link">Domů</a></li>
+                        
+                       <li class="nav-item">
+                            <div class="apartments-dropdown-menu-wrapper">
+                                
+                                <a href="#" class="nav-link apartments-main-link">Apartmány</a>
+                                <button type="button" class="apartments-dropdown-btn" aria-label="Zobrazit podmenu">
+                                    <i class="fas fa-chevron-down apartments-icon"></i>
+                                </button>
+        
+                            </div>
+
+                            <ul class="apartments-dropdown">
+                                <li><a href="#" class="apartments-dropdown-link">Apartmán Adriana</a></li>
+                                <li><a href="#" class="apartments-dropdown-link">Apartmán Aneta</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item"><a href="#" class="nav-link">Aktivity</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Rezervace</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Kontakt</a></li>
+                    </ul>
+                </nav>
+
+                <div class="menu-btn-container">
+                    <ul class="language-menu">
+                        <li class="language-item"><a href="#" class="language-link">CZ</a></li>
+                    </ul>
+
+                    <button class="open-btn btn" aria-label="Otevřít menu">
+                        <i class="fas fa-bars open-icon icons"></i>
+                    </button>
+                </div>
+            
+            </div>
+        </div>
+    </header>
+    
+    
+    <main>
+        <section id="hero-slider">
+            <div class="hero-slider-wrapper">
+
+                <button class="slider-btn prev" aria-label="Předchozí obrázek">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="hero-slider-track">
+                    <div class="hero-slide">
+                        <img src="images/hero/hero-slider1.jpg" alt="Ukázka apartmánu" loading="lazy">
+                    </div>
+                    <div class="hero-slide">
+                        <img src="images/hero/hero-slider2.jpg" alt="Ukázka apartmánu" loading="lazy">
+                    </div>
+                    <div class="hero-slide">
+                        <img src="images/hero/hero-slider3.jpg" alt="Ukázka apartmánu" loading="lazy">
+                    </div>
+                </div>
+
+                <button class="slider-btn next" aria-label="Další obrázek">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+            </div>
+        </section>
+        <section id="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>ENGELMAR APARTMENTS</h1>
+                    <p class="hero-p">
+                        Vítejte na stránkách našich nových apartmánů v Sankt Englmaru. Naše prázdninové byty se nacházejí přímo v srdci Bavorského lesa v areálu resortu Predigstuhl. 
+                        Celkem nabízíme dva plně vybavené byty s celkovou kapacitou až 10 osob. Pobyt vždy zahrnuje neomezený vstup do bazénů, saun a fitness centra. 
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/hero-slider.js"></script>
+</body>
+</html>
